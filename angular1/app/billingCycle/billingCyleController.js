@@ -10,17 +10,23 @@
         const vm = this
         const url = 'http://localhost:3003/api/billingCycles'
 
-        vm.create = function (response) {
-            console.log(vm.billingCycle)
+        vm.refresh = function () {
+            $http.get(url).then(function (response) {
+                console.log(response.data)
+                vm.billingCycle = {}
+                vm.billingCycles = response.data
+            })
+        }
 
+        vm.create = function (response) {
             $http.post(url, vm.billingCycle)
                 .then(function (response) {
+                    vm.refresh()
                     msgs.addSuccess('Salvo com sucesso!')
                 }, function (response) {
-                    console.log(response.data)
                     msgs.addError(response.data.errors)
                 })
-
         }
+        vm.refresh()
     }
 })()

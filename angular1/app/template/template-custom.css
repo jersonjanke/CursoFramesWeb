@@ -7,3 +7,7 @@
 html{
     background-color: #ecf0f5;
 }
+
+.table-actions {
+    width: 140px;
+}
