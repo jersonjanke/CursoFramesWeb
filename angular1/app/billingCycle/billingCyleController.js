@@ -3,18 +3,19 @@
         '$http',
         '$location',
         'msgs',
+        'tabs',
         BillingCycleController
     ])
 
-    function BillingCycleController($http, $location, msgs) {
+    function BillingCycleController($http, $location, msgs, tabs) {
         const vm = this
         const url = 'http://localhost:3003/api/billingCycles'
 
         vm.refresh = function () {
-            $http.get(url).then(function (response) {
-                console.log(response.data)
+            $http.get(url).then(function (response) {                
                 vm.billingCycle = {}
                 vm.billingCycles = response.data
+                tabs.show(vm, {tabList: true, tabCreate: true})
             })
         }
 
