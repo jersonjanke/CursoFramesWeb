@@ -19,7 +19,8 @@
             })
         }
 
-        vm.create = function (response) {
+        vm.create = function () {            
+            console.log(vm.billingCycle)
             $http.post(url, vm.billingCycle)
                 .then(function (response) {
                     vm.refresh()
@@ -45,8 +46,7 @@
                 .then(function (response) {
                     vm.refresh()
                     msgs.addSuccess('Alterado com sucesso!')
-                }), function (response) {
-                    console.log(response)
+                }), function (response) {                    
                     msgs.addError(response.data.errors)
                 }
         }
