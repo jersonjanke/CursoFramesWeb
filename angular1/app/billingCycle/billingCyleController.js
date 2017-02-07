@@ -12,10 +12,10 @@
         const url = 'http://localhost:3003/api/billingCycles'
 
         vm.refresh = function () {
-            $http.get(url).then(function (response) {                
+            $http.get(url).then(function (response) {
                 vm.billingCycle = {}
                 vm.billingCycles = response.data
-                tabs.show(vm, {tabList: true, tabCreate: true})
+                tabs.show(vm, { tabList: true, tabCreate: true })
             })
         }
 
@@ -28,16 +28,19 @@
                     msgs.addError(response.data.errors)
                 })
         }
-        
-        vm.showTabUpdate = function(billingCycle){
+
+        vm.showTabUpdate = function (billingCycle) {
+            console.log(billingCycle)
             vm.billingCycle = billingCycle
-            tabs.show(vm, {tabUpdate: true})
+            tabs.show(vm, { tabUpdate: true })
         }
 
-        vm.showTabDelete(billingCycle){
+        vm.showTabDelete = function (billingCycle) {
+            console.log(billingCycle)
             vm.billingCycle = billingCycle
-            tabs.show(vm, {tabDelete: true})
+            tabs.show(vm, { tabDelete: true })
         }
+
 
         vm.refresh()
     }
