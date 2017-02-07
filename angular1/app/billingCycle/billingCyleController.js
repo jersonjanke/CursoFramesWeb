@@ -30,17 +30,25 @@
         }
 
         vm.showTabUpdate = function (billingCycle) {
-            console.log(billingCycle)
             vm.billingCycle = billingCycle
             tabs.show(vm, { tabUpdate: true })
         }
 
         vm.showTabDelete = function (billingCycle) {
-            console.log(billingCycle)
             vm.billingCycle = billingCycle
             tabs.show(vm, { tabDelete: true })
         }
 
+        vm.delete = function () {
+            const deleteUrl = `${url}/${vm.billingCycle._id}`            
+            $http.delete(deleteUrl, vm.billingCycle)
+                .then(function (response) {
+                    vm.refresh()
+                    msgs.addSuccess('Deletado')
+                }), function (response) {
+                    msgs.addError(response.data.errors)
+                }
+        }
 
         vm.refresh()
     }
