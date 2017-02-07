@@ -7,24 +7,24 @@
             <td>Ações</td>
         </thead>
         <tbody>
-            <tr ng-repeat="debit in bcCtrl.billingCycle.debts">
+            <tr ng-repeat="debt in bcCtrl.billingCycle.debts">
                <td>
-                   <input ng-model="debit.name" class="form-control" placeholder="Informe o nome" ng-readonly="bcCtrl.tabDelete">
+                   <input ng-model="debt.name" class="form-control" placeholder="Informe o nome" ng-readonly="bcCtrl.tabDelete">
                </td>
                <td>
-                   <input ng-model="debit.value" class="form-control" placeholder="Informe um valor" ng-readonly="bcCtrl.tabDelete" type="number">
+                   <input ng-model="debt.value" class="form-control" placeholder="Informe um valor" ng-readonly="bcCtrl.tabDelete" type="number">
                </td>
                <td>
-                   <input ng-model="debit.status" class="form-control" placeholder="Informe o Status" data-ng-readonly="bcCtrl.tabDelete" type="number">
+                   <input ng-model="debt.status" class="form-control" placeholder="Informe o Status" data-ng-readonly="bcCtrl.tabDelete" type="number">
                </td>
                <td>
-                   <button class="btn btn-success" ng-class="{disabled: bcCtrl.tabDelete}">
+                   <button class="btn btn-success" ng-class="{disabled: bcCtrl.tabDelete}" ng-click="bcCtrl.addDebt($index)">
                        <i class="fa fa-plus" aria-hidden="true"></i>
                    </button>
-                   <button class="btn btn-warning" ng-class="{disabled: bcCtrl.tabDelete}">
+                   <button class="btn btn-warning" ng-class="{disabled: bcCtrl.tabDelete}" ng-click="bcCtrl.cloneDebt($index, debt)">
                         <i class="fa fa-clone" aria-hidden="true"></i>
                    </button>
-                   <button class="btn btn-danger" ng-class="{disabled: bcCtrl.tabDelete}">
+                   <button class="btn btn-danger" ng-class="{disabled: bcCtrl.tabDelete}" ng-click="bcCtrl.deleteDebt($index)">
                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                    </button>
                </td>

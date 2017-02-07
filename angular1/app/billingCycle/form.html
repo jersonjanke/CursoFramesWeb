@@ -5,14 +5,14 @@
             <field model="bcCtrl.billingCycle.month" placeholder="Informe o mês" id="month" label="Mês" grid="12 6 4" type="number" readonly="bcCtrl.tabDelete"></field>
             <field model="bcCtrl.billingCycle.year"  placeholder="Informe o ano" id="year" label="Ano" grid="12 6 4" type="number" readonly="bcCtrl.tabDelete"></field>                        
 
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-md-12">
                 <fieldset>
                     <legend>Créditos</legend>
                     <div ng-include="'billingCycle/creditList.html'"></div>
                 </fieldset>
             </div>
 
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-md-12">
                 <fieldset>
                     <legend>Déditos</legend>
                     <div ng-include="'billingCycle/debtList.html'"></div>
