@@ -1,22 +1,29 @@
 (function () {
     angular.module('primeiraApp').controller('BillingCycleCtrl', [
         '$http',
-        '$location',
+        '$location',        
         'msgs',
-        'tabs',
+        'tabs',        
         BillingCycleController
     ])
 
     function BillingCycleController($http, $location, msgs, tabs) {
         const vm = this
         const url = 'http://localhost:8080/api/billingCycles'
+        const status = ['PAGO', 'PENDENTE', 'AGENDADO'];        
 
         vm.refresh = function () {
-            $http.get(url).then(function (response) {
+           const page = parseInt($location.search().page) || 1
+            $http.get(`${url}?skip=${(page - 1) * 10}&limit=10`).then(function (response) {
                 vm.billingCycle = { credits: [{}], debts: [{}] }
                 vm.billingCycles = response.data
                 vm.calculateValues()
                 tabs.show(vm, { tabList: true, tabCreate: true })
+
+                $http.get(`${url}/count`).then(function(response){                    
+                    vm.pages = Math.ceil(response.data.value / 10)
+                    
+                })
             })
         }
 
@@ -25,7 +32,7 @@
             $http.post(url, vm.billingCycle)
                 .then(function (response) {
                     vm.refresh()
-                    msgs.addSuccess('Salvo com sucesso!')
+                    msgs.addSuccess('Salvo com sucesso!')                    
                 }, function (response) {
                     msgs.addError(response.data.errors)
                 })
