@@ -9,7 +9,7 @@
 
     function BillingCycleController($http, $location, msgs, tabs) {
         const vm = this
-        const url = 'http://localhost:3003/api/billingCycles'
+        const url = 'http://localhost:8080/api/billingCycles'
 
         vm.refresh = function () {
             $http.get(url).then(function (response) {
