@@ -3,7 +3,7 @@
         '$http',
         '$location',        
         'msgs',
-        'tabs',        
+        'tabs',                
         BillingCycleController
     ])
 
@@ -18,12 +18,11 @@
                 vm.billingCycle = { credits: [{}], debts: [{}] }
                 vm.billingCycles = response.data
                 vm.calculateValues()
-                tabs.show(vm, { tabList: true, tabCreate: true })
-
                 $http.get(`${url}/count`).then(function(response){                    
-                    vm.pages = Math.ceil(response.data.value / 10)
-                    
+                    vm.pages = Math.ceil(response.data.value / 10)                    
                 })
+
+                tabs.show(vm, { tabList: true, tabCreate: true })
             })
         }
 

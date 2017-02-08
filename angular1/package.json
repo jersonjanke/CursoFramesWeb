@@ -25,10 +25,7 @@
     "gulp-uglifycss": "^1.0.6",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
-    "gulp-webserver": "^0.9.1"
-  },
-  "dependencies": {
-    "bootstrap-combobox": "^1.0.2",
+    "gulp-webserver": "^0.9.1",
     "ui-select": "^0.19.6"
   }
 }
