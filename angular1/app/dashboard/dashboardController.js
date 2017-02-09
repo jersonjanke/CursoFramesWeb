@@ -1,14 +1,14 @@
 (function () {
     angular.module('primeiraApp').controller('DashboardCtrl', [
         '$http',
+        'api',
         DashboardController
     ])
 
-    function DashboardController($http) {
+    function DashboardController($http, api) {
         const vm = this
-        vm.getSummary = function () {
-            const url = 'http://ec2-52-67-125-206.sa-east-1.compute.amazonaws.com:8080/api/billingSummary'
-            $http.get(url).then(function (response) {
+        vm.getSummary = function () {            
+            $http.get(api.getBillingSummary()).then(function (response) {
                 const {credit = 0, debt = 0} = response.data
                 vm.credit = credit
                 vm.debt = debt

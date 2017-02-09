@@ -3,13 +3,14 @@
         '$http',
         '$location',        
         'msgs',
-        'tabs',                
+        'tabs',
+        'api',
         BillingCycleController
     ])
 
-    function BillingCycleController($http, $location, msgs, tabs) {
+    function BillingCycleController($http, $location, msgs, tabs, api) {
         const vm = this
-        const url = 'http://ec2-52-67-125-206.sa-east-1.compute.amazonaws.com:8080/api/billingCycles'
+        const url = api.getBillingCycles()        
         vm.status = ['PAGO', 'PENDENTE', 'AGENDADO'];        
 
         vm.refresh = function () {
