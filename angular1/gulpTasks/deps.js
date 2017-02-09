@@ -15,7 +15,8 @@ gulp.task('deps.js', function(){
         'node_modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js',
         'node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
         'node_modules/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js',
-        'node_modules/admin-lte/dist/js/app.min.js'
+        'node_modules/admin-lte/dist/js/app.min.js',
+        'node_modules/ui-select/dist/select.min.js'
     ])
     .pipe(uglify()) // minificar arquivos
     .pipe(concat('deps.min.js')) // criar arquivo minificado
@@ -28,7 +29,8 @@ gulp.task('deps.css', function(){
         'node_modules/font-awesome/css/font-awesome.min.css',
         'node_modules/admin-lte/bootstrap/css/bootstrap.min.css',
         'node_modules/admin-lte/dist/css/AdminLTE.min.css',
-        'node_modules/admin-lte/dist/css/skins/_all-skins.min.css'
+        'node_modules/admin-lte/dist/css/skins/_all-skins.min.css',
+        'node_modules/ui-select/dist/select.min.css'
     ])
     .pipe(uglifycss({"uglyComments":true}))
     .pipe(concat('deps.min.css'))

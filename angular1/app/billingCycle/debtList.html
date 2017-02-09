@@ -16,7 +16,13 @@
                         type="number">
                 </td>
                 <td>
-                    <input ng-model="debt.status" class="form-control" placeholder="Informe o Status" data-ng-readonly="bcCtrl.tabDelete">                    
+                    <!--<input ng-model="debt.status" class="form-control" placeholder="Informe o Status" data-ng-readonly="bcCtrl.tabDelete">                    -->                    
+                    <ui-select ng-model="debt.status">
+                        <ui-select-match placeholder="Selecione o status">{{debt.status}}</ui-select-match>
+                        <ui-select-choices repeat="item in bcCtrl.status">
+                            {{item}}
+                        </ui-select-choices>
+                    </ui-select>
                 </td>
                 <td>
                     <button class="btn btn-success" ng-disabled="bcCtrl.tabDelete" ng-click="bcCtrl.addDebt($index)">

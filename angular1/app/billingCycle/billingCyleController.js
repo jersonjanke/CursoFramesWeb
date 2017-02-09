@@ -9,8 +9,8 @@
 
     function BillingCycleController($http, $location, msgs, tabs) {
         const vm = this
-        const url = 'http://localhost:8080/api/billingCycles'
-        const status = ['PAGO', 'PENDENTE', 'AGENDADO'];        
+        const url = 'http://ec2-52-67-125-206.sa-east-1.compute.amazonaws.com:8080/api/billingCycles'
+        vm.status = ['PAGO', 'PENDENTE', 'AGENDADO'];        
 
         vm.refresh = function () {
            const page = parseInt($location.search().page) || 1

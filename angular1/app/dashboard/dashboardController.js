@@ -7,7 +7,7 @@
     function DashboardController($http) {
         const vm = this
         vm.getSummary = function () {
-            const url = 'http://localhost:8080/api/billingSummary'
+            const url = 'http://ec2-52-67-125-206.sa-east-1.compute.amazonaws.com:8080/api/billingSummary'
             $http.get(url).then(function (response) {
                 const {credit = 0, debt = 0} = response.data
                 vm.credit = credit
