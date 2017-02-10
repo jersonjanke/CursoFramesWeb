@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="primeiraApp">
-    <head>
-        <title>Primeiro App</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/assets/css/deps.min.css">
-        <link rel="stylesheet" href="/assets/css/app.min.css">
-    </head>
-    <body class="skin-blue fixed sidebar-mini">
+
+<head>
+    <title>Primeiro App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/deps.min.css">
+    <link rel="stylesheet" href="/assets/css/app.min.css">
+</head>
+<!--<body class="skin-blue fixed sidebar-mini">
         <div class="wrapper">
             <header class="main-header" ng-include="'/template/header.html'"></header>
             <aside class="main-sidebar" ng-include="'/template/menu.html'"></aside>
@@ -16,5 +17,12 @@
         </div>
         <script src="/assets/js/deps.min.js"></script>
         <script src="/assets/js/app.min.js"></script>
-    </body>
+    </body>-->
+
+<body>
+    <div ui-view></div>
+</body>
+<script src="/assets/js/deps.min.js"></script>
+<script src="/assets/js/app.min.js"></script>
+
 </html>

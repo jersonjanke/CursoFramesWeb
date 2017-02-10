@@ -7,6 +7,7 @@
 
     function LoginCtrl($http, api) {
         const vm = this
+        console.log('login')
         // vm.getSummary = function () {            
         //     $http.get(api.getBillingSummary()).then(function (response) {
         //         const {credit = 0, debt = 0} = response.data
