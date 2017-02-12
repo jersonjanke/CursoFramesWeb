@@ -2,21 +2,23 @@
     angular.module('primeiraApp').controller('LoginCtrl', [
         '$http',
         'api',
-        LoginCtrl
+        '$state',
+        LoginController
     ])
 
-    function LoginCtrl($http, api) {
+    function LoginController($http, api, $state) {
         const vm = this
-        console.log('login')
-        // vm.getSummary = function () {            
-        //     $http.get(api.getBillingSummary()).then(function (response) {
-        //         const {credit = 0, debt = 0} = response.data
-        //         vm.credit = credit
-        //         vm.debt = debt
-        //         vm.total = credit - debt
-        //     })
-        // }
-
-        // vm.getSummary()
+        vm.getLoginInit = function (name, password) {
+            $http.get(api.getLoginUrl()).then(function (response) {
+                response.data.forEach(function (val) {
+                    if(name === val.name && password === val.password){
+                        console.log('Logou')
+                        $state.go('billingCycles')
+                    } else {
+                        console.log('Não logou')
+                    }
+                })
+            })
+        }        
     }
 })()

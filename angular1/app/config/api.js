@@ -20,6 +20,10 @@
             return url + 'billingSummary'
         }
 
-        return { getBillingCycles, getBillingSummary }
+        function getLoginUrl() {
+            return url + 'login'
+        }
+
+        return { getBillingCycles, getBillingSummary, getLoginUrl }
     }
 })()

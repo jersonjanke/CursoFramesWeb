@@ -1,4 +1,4 @@
-<div class="body-login" ng-controller="login as LoginCtrl">
+<div class="body-login" ng-controller="LoginCtrl as vm">
     <div class="container">
         <div class="login-icon">
             <i class="glyphicon glyphicon-tint"></i> DigitalOcean
@@ -8,9 +8,10 @@
                 Login
             </div>
             <div class="login-input-parts">
-                <input class="login-input" placeholder="Email Address" />
-                <input class="login-input" placeholder="Password" />
-                <input class="login-input button" type="button" value="Log In" />
+                <input class="login-input" ng-model="vm.name" placeholder="Email Address" />
+                <input class="login-input" ng-model="vm.password" placeholder="Password" />
+                <!--<input class="login-input button" type="button" ng-click="vm.getLoginInit()" />-->
+                <button class="login-input button" ng-click="vm.getLoginInit(vm.name, vm.password)">Login</button>
             </div>
             <div class="login-forgot">
                 Forgot password?

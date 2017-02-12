@@ -9,6 +9,7 @@
         const vm = this
         vm.getSummary = function () {            
             $http.get(api.getBillingSummary()).then(function (response) {
+                console.log(response.data)
                 const {credit = 0, debt = 0} = response.data
                 vm.credit = credit
                 vm.debt = debt
